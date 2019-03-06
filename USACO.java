@@ -17,21 +17,36 @@ public class USACO{
     }
     String first = a.get(0);
     int[] firstLine = new int[4];
+    processString(first,firstLine);
+    int[][] board = new int[firstLine[0]][firstLine[1]];
+    for (int i = 0;i < board.length;i += 1) {
+      processString(a.get(i+1),board[i]);
+    }
+    /*for (int i = 0;i < firstLine.length;i += 1) {
+      System.out.print(firstLine[i] + " ");
+    }
+    System.out.println();
+    for (int i = 0;i < board.length;i += 1) {
+      for (int j = 0;j < board[i].length;j += 1) {
+        System.out.print(board[i][j] + " ");
+      }
+      System.out.println();
+    }*/
+    return 0;
+  }
+
+  public static void processString(String s,int[] a) {
     int ind = 0;
     int j = 0;
-    for (int i = 0;i < first.length();i += 1) {
-      if (first.charAt(i) == ' ') {
-        firstLine[ind] = Integer.parseInt(first.substring(j,i));
+    for (int i = 0;i < s.length();i += 1) {
+      if (s.charAt(i) == ' ') {
+        a[ind] = Integer.parseInt(s.substring(j,i));
         ind += 1;
         j = i + 1;
       }
-      if (i+1 == first.length()) {
-        firstLine[3] = Integer.parseInt(first.substring(j,i+1));
+      if (i+1 == s.length()) {
+        a[a.length - 1] = Integer.parseInt(s.substring(j,i+1));
       }
     }
-    for (int i = 0;i < firstLine.length;i += 1) {
-      System.out.print(firstLine[i] + " ");
-    }
-    return 0;
   }
 }
