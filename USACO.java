@@ -15,6 +15,17 @@ public class USACO{
     }catch(FileNotFoundException e) {
       System.out.println("Input a valid file name");
     }
+    String first = a.get(0);
+    int[] firstLine = new int[4];
+    int ind = 0;
+    int j = 0;
+    for (int i = 0;i < first.length();i += 1) {
+      if (first.charAt(i) == ' ') {
+        firstLine[ind] = Integer.parseInt(first.substring(j,i));
+        ind += 1;
+        j = i + 1;
+      }
+    }
     return 0;
   }
 }
