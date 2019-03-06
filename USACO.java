@@ -22,13 +22,25 @@ public class USACO{
     for (int i = 0;i < board.length;i += 1) {
       processString(a.get(i+1),board[i]);
     }
+
+    int[][] moves = new int [firstLine[3]][3];
+    for (int i = 0;i < moves.length;i += 1) {
+      processString(a.get(i+1+firstLine[0]),moves[i]);
+    }
     /*for (int i = 0;i < firstLine.length;i += 1) {
       System.out.print(firstLine[i] + " ");
     }
-    System.out.println();
+    System.out.println("\n");
     for (int i = 0;i < board.length;i += 1) {
       for (int j = 0;j < board[i].length;j += 1) {
         System.out.print(board[i][j] + " ");
+      }
+      System.out.println();
+    }
+    System.out.println();
+    for(int i = 0;i < moves.length;i += 1) {
+      for (int j = 0;j < moves[i].length;j += 1) {
+        System.out.print(moves[i][j] + " ");
       }
       System.out.println();
     }*/
