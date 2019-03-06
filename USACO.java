@@ -4,6 +4,11 @@ import java.io.File;
 import java.io.FileNotFoundException;
 
 public class USACO{
+
+private static int[]firstLine;
+private static int[][]board;
+private static int[][]moves;
+
   public static int bronze(String filename) {
     ArrayList<String> a = new ArrayList<String>();
     try {
@@ -16,14 +21,14 @@ public class USACO{
       System.out.println("Input a valid file name");
     }
     String first = a.get(0);
-    int[] firstLine = new int[4];
+    firstLine = new int[4];
     processString(first,firstLine);
-    int[][] board = new int[firstLine[0]][firstLine[1]];
+    board = new int[firstLine[0]][firstLine[1]];
     for (int i = 0;i < board.length;i += 1) {
       processString(a.get(i+1),board[i]);
     }
 
-    int[][] moves = new int [firstLine[3]][3];
+    moves = new int [firstLine[3]][3];
     for (int i = 0;i < moves.length;i += 1) {
       processString(a.get(i+1+firstLine[0]),moves[i]);
     }
@@ -44,6 +49,9 @@ public class USACO{
       }
       System.out.println();
     }*/
+    for (int i = 0;i < moves.length;i += 1) {
+      makeMove(moves[i]);
+    }
     return 0;
   }
 
@@ -60,5 +68,9 @@ public class USACO{
         a[a.length - 1] = Integer.parseInt(s.substring(j,i+1));
       }
     }
+  }
+
+  public static void makeMove(int[] a) {
+
   }
 }
