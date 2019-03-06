@@ -25,6 +25,12 @@ public class USACO{
         ind += 1;
         j = i + 1;
       }
+      if (i+1 == first.length()) {
+        firstLine[3] = Integer.parseInt(first.substring(j,i+1));
+      }
+    }
+    for (int i = 0;i < firstLine.length;i += 1) {
+      System.out.print(firstLine[i] + " ");
     }
     return 0;
   }
