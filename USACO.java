@@ -72,9 +72,15 @@ private static int[][]moves;
 
   public static void makeMove(int[] a) {
     int max = 0;
+    int xcor = 0;
+    int ycor = 0;
     for (int i = 0;i < 3;i += 1) {
       for (int j = 0;j < 3;j += 1) {
-        
+        if (board[i+a[0]][j+a[1]] >= max) {
+          xcor = i+a[0];
+          ycor = j+a[1];
+          max = board[xcor][ycor];
+        }
       }
     }
   }
