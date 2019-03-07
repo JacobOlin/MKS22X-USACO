@@ -52,6 +52,13 @@ private static int[][]moves;
     for (int i = 0;i < moves.length;i += 1) {
       makeMove(moves[i]);
     }
+    /*System.out.println("----------------");
+    for (int i = 0;i < board.length;i += 1) {
+      for (int j = 0;j < board[i].length;j += 1) {
+        System.out.print(board[i][j] + " ");
+      }
+      System.out.println();
+    }*/
     return 0;
   }
 
@@ -76,16 +83,16 @@ private static int[][]moves;
     int ycor = 0;
     for (int i = 0;i < 3;i += 1) {
       for (int j = 0;j < 3;j += 1) {
-        if (board[i+a[0]][j+a[1]] >= max) {
-          xcor = i+a[0];
-          ycor = j+a[1];
+        if (board[i+a[0] - 1][j+a[1] -1] >= max) {
+          xcor = i+a[0] - 1;
+          ycor = j+a[1] - 1;
           max = board[xcor][ycor];
         }
       }
     }
     board[xcor][ycor] -= a[2];
-    for (int i = a[0];i < a[0] + 3;i += 1) {
-      for (int j = a[1];j < a[1] + 3;j += 1) {
+    for (int i = a[0] - 1;i < a[0] + 2;i += 1) {
+      for (int j = a[1] - 1;j < a[1] + 2;j += 1) {
         if (board[i][j] >= board[xcor][ycor]) {
           board[i][j] = board[xcor][ycor];
         }
