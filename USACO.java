@@ -83,5 +83,13 @@ private static int[][]moves;
         }
       }
     }
+    board[xcor][ycor] -= a[2];
+    for (int i = a[0];i < a[0] + 3;i += 1) {
+      for (int j = a[1];j < a[1] + 3;j += 1) {
+        if (board[i][j] >= board[xcor][ycor]) {
+          board[i][j] = board[xcor][ycor];
+        }
+      }
+    }
   }
 }
