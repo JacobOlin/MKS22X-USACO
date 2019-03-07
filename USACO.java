@@ -52,7 +52,6 @@ private static int[][]moves;
     for (int i = 0;i < moves.length;i += 1) {
       makeMove(moves[i]);
     }
-    sinkDown(firstLine[2]);
     /*System.out.println("----------------");
     for (int i = 0;i < board.length;i += 1) {
       for (int j = 0;j < board[i].length;j += 1) {
@@ -60,7 +59,8 @@ private static int[][]moves;
       }
       System.out.println();
     }*/
-    return 0;
+    sinkDown(firstLine[2]);
+    return 72 * 72 * addUp();
   }
 
   public static void processString(String s,int[] a) {
@@ -103,13 +103,23 @@ private static int[][]moves;
 
   public static void sinkDown(int d) {
     for (int i = 0;i < board.length;i += 1) {
-      for (int j = 0;j < board.length;j += 1) {
+      for (int j = 0;j < board[i].length;j += 1) {
         board[i][j] = d - board[i][j];
         if (board[i][j] < 0) {
           board[i][j] = 0;
         }
       }
     }
+  }
+
+  public static int addUp() {
+    int count = 0;
+    for (int i = 0;i < board.length;i += 1) {
+      for (int j = 0;j < board[i].length;j += 1) {
+        count += board[i][j];
+      }
+    }
+    return count;
   }
 
 }
