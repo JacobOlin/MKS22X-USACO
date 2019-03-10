@@ -169,4 +169,8 @@ private static int[]startEnd;
     return 0;
   }
 
+  public static void changeBoard(int count,int EvenOdd) {
+    
+  }
+
 }
