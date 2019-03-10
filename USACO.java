@@ -8,6 +8,9 @@ public class USACO{
 private static int[]firstLine;
 private static int[][]board;
 private static int[][]moves;
+private static int[]firstLineS;
+private static char[][]boardS;
+private static int[]startEnd;
 
   public static int bronze(String filename) {
     ArrayList<String> a = new ArrayList<String>();
@@ -133,14 +136,28 @@ private static int[][]moves;
     }catch(FileNotFoundException e) {
       System.out.println("Input a valid file name");
     }
-    int[] firstLine = new int[3];
+    firstLineS = new int[3];
     processString(a.get(0),firstLine);
-    int[][] board = new int[firstLine[0]][firstLine[1]];
+    boardS = new char[firstLine[0]][firstLine[1]];
     for (int i = 0;i < board.length;i += 1) {
-      processString(a.get(i+1),board[i]);
+      for (int j = 0;j < a.get(i+1).length();j += 1) {
+        boardS[i][j] = a.get(i+1).charAt(j);
+      }
     }
-    int[] startEnd = new int[4];
+    startEnd = new int[4];
     processString(a.get(a.size()-1),startEnd);
+
+    int[][] board2 = new int[boardS.length][boardS[0].length];
+    for (int i = 0;i < board2.length;i += 1) {
+      for (int j = 0;j < board2[i].length;j += 1) {
+        if (board[i][j] == '*') {
+          board2[i][j] = -1;
+        }
+        else {
+          board2[i][j] = 0;
+        }
+      }
+    }
 
     return 0;
   }
