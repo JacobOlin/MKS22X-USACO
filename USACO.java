@@ -123,6 +123,25 @@ private static int[][]moves;
   }
 
   public static int silver(String filename) {
+    ArrayList<String> a = new ArrayList<String>();
+    try {
+      File f = new File(filename);
+      Scanner s = new Scanner(f);
+      while (s.hasNext()) {
+        a.add(s.nextLine());
+      }
+    }catch(FileNotFoundException e) {
+      System.out.println("Input a valid file name");
+    }
+    int[] firstLine = new int[3];
+    processString(a.get(0),firstLine);
+    int[][] board = new int[firstLine[0]][firstLine[1]];
+    for (int i = 0;i < board.length;i += 1) {
+      processString(a.get(i+1),board[i]);
+    }
+    int[] startEnd = new int[4];
+    processString(a.get(a.size()-1),startEnd);
+
     return 0;
   }
 
