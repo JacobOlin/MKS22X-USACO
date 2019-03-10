@@ -137,9 +137,9 @@ private static int[]startEnd;
       System.out.println("Input a valid file name");
     }
     firstLineS = new int[3];
-    processString(a.get(0),firstLine);
-    boardS = new char[firstLine[0]][firstLine[1]];
-    for (int i = 0;i < board.length;i += 1) {
+    processString(a.get(0),firstLineS);
+    boardS = new char[firstLineS[0]][firstLineS[1]];
+    for (int i = 0;i < boardS.length;i += 1) {
       for (int j = 0;j < a.get(i+1).length();j += 1) {
         boardS[i][j] = a.get(i+1).charAt(j);
       }
@@ -150,7 +150,7 @@ private static int[]startEnd;
     int[][] board2 = new int[boardS.length][boardS[0].length];
     for (int i = 0;i < board2.length;i += 1) {
       for (int j = 0;j < board2[i].length;j += 1) {
-        if (board[i][j] == '*') {
+        if (boardS[i][j] == '*') {
           board2[i][j] = -1;
         }
         else {
@@ -158,6 +158,13 @@ private static int[]startEnd;
         }
       }
     }
+
+    /*for (int i = 0;i < board2.length;i += 1) {
+      for (int j = 0;j < board2[i].length;j += 1) {
+        System.out.print(board2[i][j] + " ");
+      }
+      System.out.println();
+    }*/
 
     return 0;
   }
