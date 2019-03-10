@@ -122,4 +122,8 @@ private static int[][]moves;
     return count;
   }
 
+  public static int silver(String filename) {
+    return 0;
+  }
+
 }
