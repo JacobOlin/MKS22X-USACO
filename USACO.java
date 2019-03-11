@@ -169,8 +169,21 @@ private static int[]startEnd;
     return 0;
   }
 
-  public static void changeBoard(int count,int EvenOdd) {
-    
+  public static boolean inBounds(int i,int j) {
+    return i >= 0 && j >= 0 && i < boardS.length && j < boardS[0].length;
+  }
+
+  public static void changeBoard(int count,int EvenOdd,int[][]field) {
+    if (count > 0) {
+      for (int i = 0;i < field.length;i += 1) {
+        for (int j = 0;j < field[i].length;j += 1) {
+          if ((i + j) % 2 == EvenOdd) {
+
+          }
+        }
+      }
+    }
+
   }
 
 }
