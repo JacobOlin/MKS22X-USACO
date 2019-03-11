@@ -165,8 +165,10 @@ private static int[]startEnd;
       }
       System.out.println();
     }*/
+    board2[startEnd[0]-1][startEnd[1]-1] = 1;
+    changeBoard(firstLineS[3],(startEnd[0] + startEnd[1] + 1)%2,board2);
 
-    return 0;
+    return board2[startEnd[2]-1][startEnd[3]-1];
   }
 
   public static boolean inBounds(int i,int j) {
