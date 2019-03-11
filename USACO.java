@@ -166,7 +166,7 @@ private static int[]startEnd;
       System.out.println();
     }*/
     board2[startEnd[0]-1][startEnd[1]-1] = 1;
-    changeBoard(firstLineS[3],(startEnd[0] + startEnd[1] + 1)%2,board2);
+    changeBoard(firstLineS[2],(startEnd[0] + startEnd[1] + 1)%2,board2);
 
     return board2[startEnd[2]-1][startEnd[3]-1];
   }
@@ -179,7 +179,7 @@ private static int[]startEnd;
     if (count > 0) {
       for (int i = 0;i < field.length;i += 1) {
         for (int j = 0;j < field[i].length;j += 1) {
-          if ((i + j) % 2 == EvenOdd && board[i][j] != -1) {
+          if ((i + j) % 2 == EvenOdd && field[i][j] != -1) {
             if (inBounds(i-1,j) && field[i-1][j] != -1) {
               field[i][j] += field[i-1][j];
             }
